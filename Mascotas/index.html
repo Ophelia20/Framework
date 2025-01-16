@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mascotas</title>
+    <link rel="stylesheet" href="css/estilos.css">
+    <link rel="stylesheet" href="css/switch.css">
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+<body>
+    <nav class="menu">
+        <section class="menu__cont">
+            <h1 class="logo">MASCOTAS</h1>
+            <ul class="links">
+                <li class="menu__item  menu__item--show">
+                    <a href="#" class="menu__link"><i class="fa fa-bars" style="font-size:24px; color:white;"></i></a>
+    
+                    <ul class="nesting">
+                        <li class="inside">
+                            <a href="masc_perd.html" class="menu__link menu__link--inside">Mascotas perdidas</a>
+                        </li>
+                        <li class="inside">
+                            <a href="users.html" class="menu__link menu__link--inside">Iniciar sesión</a>
+                        </li>
+                        <li class="inside">
+                            <a href="crear_cuenta.html" class="menu__link menu__link--inside">Crear cuenta</a>
+                        </li>
+                    </ul>
+                </li>    
+            </ul>
+        </section>     
+    </nav>
+
+    <div class="animal">
+        <form class="pure-form pure-form-aligned">
+            <button id="dog">Perros</button>
+            <button id="cat">Gatos</button>
+            <!--<span>Perros</span>
+            <label class="switch">
+                <input id="animal" type="checkbox" onchange="Datos()">
+                <span class="slider round"></span>
+            </label>
+            <span>Gatos</span>-->
+        </form>
+
+        <div class="pure-u-1 pure-u-md-1-3">
+            <form class="pure-form pure-form-aligned">
+                <label for="traza">Razas</label>
+                <select id="traza" class="pure-input-1 pure-input-rounded">
+                    <option id="s_ra"></option>
+                </select>
+            </form>
+        </div>
+
+        <div class="w3-container"><table class="w3-table w3-striped" border="1px" id="Cont">
+            <thead class="w3-blue">
+                <td>Nombre</td>
+                <td>Alimentación</td>
+                <td>Descripción</td>
+                <td>Tamaño</td>
+                <td>Imagen</td>
+            </thead>
+            <tbody id="tcuerpo"></tbody>
+        </table></div>
+    </div>
+
+    <script>
+        function Datos(){
+            const d_ani = document.getElementById('dog');
+            const c_ani = document.getElementById('cat');
+            d_ani.addEventListener('click', () => {
+                fetch(`http://localhost:3000/Perros`)
+                .then((response) => response.json())
+                .then((data) => console.log(data));
+            });
+            c_ani.addEventListener('click', () => {
+                fetch(`http://localhost:3000/Gatos`)
+                .then((response) => response.json())
+                .then((data) => lista(data.results));
+            });
+
+            const t_ra = document.getElementById('s_ra');
+            function lista(nombre) {
+                nombre.forEach(n => {t_ra.innerText += n.nombre});
+            }
+
+            //$.ajax({
+              //  type: "GET",
+                //url: `http://localhost:3000/${ani}`,
+                //success: function(data){
+                  //  var res;
+                    //for (let item of data.results) {
+                      //  res += "<tr><td>"+item.nombre+"</td><td>"+item.alimentacion+"</td><td>"+item.descripcion+"</td><td>"+item.tamano+"</td><td><img src='"+item.imagen+"'/></td></tr>";
+                    //}
+                    //$("#tcuerpo").append(res);
+                //}, error: function(e) {
+                  //  alert("No se pudo realizar");
+                //}
+            //});
+            //return false;
+            //alert ("Acabo la funcion");
+        }
+    </script>
+
+</body>
+</html>

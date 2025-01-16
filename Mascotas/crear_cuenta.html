@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mascotas</title>
+    <link rel="stylesheet" href="css/estilos.css">
+    <link rel="stylesheet" href="css/info.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+<body>
+    <nav class="menu">
+        <section class="menu__cont">
+            <h1 class="logo">MASCOTAS</h1>
+            <ul class="links">
+                <li class="menu__item  menu__item--show">
+                    <a href="#" class="menu__link"><i class="fa fa-bars" style="font-size:24px; color:white;"></i></a>
+    
+                    <ul class="nesting">
+                        <li class="inside">
+                            <a href="index.html" class="menu__link menu__link--inside">Inicio</a>
+                        </li>
+                        <li class="inside">
+                            <a href="users.html" class="menu__link menu__link--inside">Iniciar sesión</a>
+                        </li>
+                        <li class="inside">
+                            <a href="masc_perd.html" class="menu__link menu__link--inside">Mascotas perdidas</a>
+                        </li>
+                    </ul>
+                </li>    
+            </ul>
+        </section>     
+    </nav>
+    
+    <div class="container">
+        <form action="action_page.php" name="" method="POST">
+        <div class="row">
+            <div class="col-25">
+            <label for="user">Nombre de Usuario</label>
+            </div>
+            <div class="col-75">
+            <input type="text" id="user" name="usuario" placeholder="Usuario" required>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-25">
+            <label for="clave">Contraseña</label>
+            </div>
+            <div class="col-75">
+            <input type="password" id="clave" name="cont" minlength="8" placeholder="Contraseña" required>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-25">
+            <label for="nom">Nombre</label>
+            </div>
+            <div class="col-75">
+            <input type="text" id="nom" name="ncomp" placeholder="Nombre completo" required>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-25">
+            <label for="tel">Teléfono</label>
+            </div>
+            <div class="col-75">
+            <input type="text" id="tel" name="telefono" placeholder="Teléfono" required>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-25">
+            <label for="dir">Dirección</label>
+            </div>
+            <div class="col-75">
+            <input type="text" id="dir" name="direccion" placeholder="Dirección" required>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-25">
+            <label for="masc">Mascota</label>
+            </div>
+            <div class="col-75">
+            <input type="text" id="masc" name="nmasc" placeholder="Nombre de la mascota" required>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-25">
+            <label for="rmasc">Raza</label>
+            </div>
+            <div class="col-75">
+            <input type="text" id="rmasc" name="razamasc" placeholder="Raza de la mascota" required>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-25">
+            <label for="dmasc">Descripción</label>
+            </div>
+            <div class="col-75">
+            <input type="text" id="dmasc" name="descmasc" placeholder="Descripción de la mascota">
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-25">
+            <label for="emasc">Edad</label>
+            </div>
+            <div class="col-75">
+            <input type="text" id="emasc" name="edad" placeholder="Edad de la mascota">
+            </div>
+        </div>
+
+        <div class="row">
+            <input type="submit" value="Crear">
+        </div>
+        </form>
+    </div>
+</body>
